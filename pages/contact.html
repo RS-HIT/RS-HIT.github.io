@@ -1,0 +1,140 @@
+<!-- 联系页面内容 -->
+<div class="page-content" id="contactPage" style="display: none;">
+  <div class="contact-header">
+    <h1>✉️ 联系我</h1>
+    <p class="contact-intro">
+      <!-- 提示：在此处填写联系页面介绍 -->
+      欢迎与我交流合作，无论是技术讨论、项目合作还是其他任何想法
+    </p>
+  </div>
+  
+  <!-- 联系方式卡片 -->
+  <div class="contact-methods">
+    <div class="contact-card email">
+      <div class="contact-icon">📧</div>
+      <h3>邮箱</h3>
+      <p>
+        <!-- 提示：在此处填写邮箱地址 -->
+        your.email@example.com
+      </p>
+      <a href="mailto:your.email@example.com" class="contact-btn">发送邮件</a>
+    </div>
+    
+    <div class="contact-card github">
+      <div class="contact-icon">🔗</div>
+      <h3>GitHub</h3>
+      <p>
+        <!-- 提示：在此处填写GitHub用户名 -->
+        @YourGitHubUsername
+      </p>
+      <a href="https://github.com/YourGitHubUsername" target="_blank" class="contact-btn">访问GitHub</a>
+    </div>
+    
+    <div class="contact-card linkedin">
+      <div class="contact-icon">💼</div>
+      <h3>LinkedIn</h3>
+      <p>
+        <!-- 提示：在此处填写LinkedIn信息 -->
+        专业网络连接
+      </p>
+      <a href="https://linkedin.com/in/yourprofile" target="_blank" class="contact-btn">查看档案</a>
+    </div>
+    
+    <div class="contact-card wechat">
+      <div class="contact-icon">💬</div>
+      <h3>微信</h3>
+      <p>
+        <!-- 提示：在此处填写微信号或说明 -->
+        扫码添加微信
+      </p>
+      <button class="contact-btn" onclick="showQRCode()">显示二维码</button>
+    </div>
+  </div>
+  
+  <!-- 联系表单 -->
+  <div class="contact-form-section">
+    <h2>📝 快速联系</h2>
+    <form class="contact-form" id="contactForm">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="contactName">姓名 *</label>
+          <input type="text" id="contactName" name="name" required>
+        </div>
+        <div class="form-group">
+          <label for="contactEmail">邮箱 *</label>
+          <input type="email" id="contactEmail" name="email" required>
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <label for="contactSubject">主题</label>
+        <select id="contactSubject" name="subject">
+          <option value="">请选择主题</option>
+          <option value="collaboration">合作咨询</option>
+          <option value="technical">技术交流</option>
+          <option value="job">工作机会</option>
+          <option value="other">其他</option>
+        </select>
+      </div>
+      
+      <div class="form-group">
+        <label for="contactMessage">消息内容 *</label>
+        <textarea id="contactMessage" name="message" rows="6" required placeholder="请在此处输入您的消息..."></textarea>
+      </div>
+      
+      <button type="submit" class="submit-btn">发送消息</button>
+    </form>
+  </div>
+  
+  <!-- FAQ部分 -->
+  <div class="faq-section">
+    <h2>❓ 常见问题</h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFAQ(this)">
+          <!-- 提示：添加常见问题 -->
+          <span>如何与您联系最有效？</span>
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-answer">
+          <!-- 提示：添加问题答案 -->
+          邮箱是最佳联系方式，通常会在24小时内回复。
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFAQ(this)">
+          <span>是否接受项目合作？</span>
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-answer">
+          <!-- 提示：添加问题答案 -->
+          欢迎有趣的项目合作机会，请通过邮箱详细说明项目情况。
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFAQ(this)">
+          <span>提供技术咨询服务吗？</span>
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-answer">
+          <!-- 提示：添加问题答案 -->
+          根据具体情况提供技术咨询，可以先通过邮箱沟通需求。
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- 微信二维码模态框 -->
+  <div id="qrModal" class="modal" style="display: none;">
+    <div class="modal-content">
+      <span class="modal-close" onclick="hideQRCode()">&times;</span>
+      <h3>微信二维码</h3>
+      <div class="qr-code">
+        <!-- 提示：在此处放置微信二维码图片 -->
+        <img src="wechat-qr.jpg" alt="微信二维码" id="wechatQR">
+      </div>
+    </div>
+  </div>
+</div>

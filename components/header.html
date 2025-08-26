@@ -1,0 +1,37 @@
+<!-- 页眉组件 - 粘性导航栏 -->
+<header id="main-header">
+  <div class="header-container">
+    <!-- 头像/Logo -->
+    <div class="header-logo">
+      <img src="avatar.jpg" alt="用户头像" class="header-avatar" id="headerAvatar">
+    </div>
+    
+    <!-- 导航按钮区域 -->
+    <nav class="header-nav">
+      <button class="nav-btn active" data-page="home" id="navHome">
+        🏠 首页
+      </button>
+      <button class="nav-btn" data-page="about" id="navAbout">
+        👤 关于我
+      </button>
+      <button class="nav-btn" data-page="projects" id="navProjects">
+        📁 项目
+      </button>
+      <button class="nav-btn" data-page="contact" id="navContact">
+        ✉️ 联系
+      </button>
+    </nav>
+    
+    <!-- 搜索图标 -->
+    <div class="header-search">
+      <button class="search-icon-btn" id="searchBtn" onclick="toggleSearch()">
+        🔍
+      </button>
+      <!-- 搜索框（隐藏状态） -->
+      <div class="search-dropdown" id="searchDropdown">
+        <input type="text" class="search-input" placeholder="搜索内容..." id="searchInput">
+        <button class="search-submit" onclick="handleSearch()">搜索</button>
+      </div>
+    </div>
+  </div>
+</header>

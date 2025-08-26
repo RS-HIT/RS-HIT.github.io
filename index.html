@@ -2,60 +2,979 @@
 <html lang="zh">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>R 的技术主页</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-<body>
-  <header>
+  <!-- 页眉组件 - 粘性导航栏 -->
+  <header id="main-header">
     <div class="header-container">
-      <img src="你的头像链接.jpg" alt="头像" class="avatar">
-      <div class="site-title">
-        <h1>R 的技术主页</h1>
-        <p>探索技术、表达思想、连接世界</p>
+      <!-- 头像/Logo -->
+      <div class="header-logo">
+        <img src="avatar.jpg" alt="用户头像" class="header-avatar" id="headerAvatar">
       </div>
-      <nav class="main-nav">
-        <a href="index.html">首页</a>
-        <a href="about.html">关于我</a>
-        <a href="projects.html">项目</a>
-        <a href="contact.html">联系</a>
+      
+      <!-- 导航按钮区域 -->
+      <nav class="header-nav">
+        <button class="nav-btn active" data-page="home" id="navHome">
+          🏠 首页
+        </button>
+        <button class="nav-btn" data-page="about" id="navAbout">
+          👤 关于我
+        </button>
+        <button class="nav-btn" data-page="projects" id="navProjects">
+          📁 项目
+        </button>
+        <button class="nav-btn" data-page="contact" id="navContact">
+          ✉️ 联系
+        </button>
       </nav>
+      
+      <!-- 搜索图标 -->
+      <div class="header-search">
+        <button class="search-icon-btn" id="searchBtn" onclick="toggleSearch()">
+          🔍
+        </button>
+        <!-- 搜索框（隐藏状态） -->
+        <div class="search-dropdown" id="searchDropdown">
+          <input type="text" class="search-input" placeholder="搜索内容..." id="searchInput">
+          <button class="search-submit" onclick="handleSearch()">搜索</button>
+        </div>
+      </div>
     </div>
   </header>
-  <div class="container">
-    <aside class="sidebar">
-      <nav>
-        <ul>
-          <li><a href="index.html">🏠 主页</a></li>
-          <li><a href="about.html">👤 关于我</a></li>
-          <li><a href="projects.html">📁 项目</a></li>
-          <li><a href="contact.html">✉️ 联系</a></li>
-        </ul>
-      </nav>
+  
+  <!-- 主要内容区域 -->
+  <div class="main-layout">
+    <!-- 左侧边栏组件 -->
+    <aside id="sidebar">
+      <div class="sidebar-container">
+        <!-- 用户信息区域 -->
+        <div class="user-profile">
+          <img src="avatar.jpg" alt="用户头像" class="sidebar-avatar" id="sidebarAvatar">
+          <h3 class="username" id="userName">
+            <!-- 提示：在此处填写用户名 -->
+            Your Name
+          </h3>
+          <div class="page-views">
+            📊 浏览量: <span id="viewCount">1,234</span>
+          </div>
+        </div>
+        
+        <!-- 联系信息区域 -->
+        <div class="contact-info">
+          <div class="contact-item">
+            <span class="contact-emoji">🔗</span>
+            <a href="https://github.com/YOUR_USERNAME" target="_blank" id="githubLink">
+              <!-- 提示：在此处填写GitHub用户名 -->
+              GitHub Profile
+            </a>
+          </div>
+          
+          <div class="contact-item">
+            <span class="contact-emoji">📧</span>
+            <a href="mailto:your.email@example.com" id="emailLink">
+              <!-- 提示：在此处填写邮箱地址 -->
+              your.email@example.com
+            </a>
+          </div>
+          
+          <div class="contact-item">
+            <span class="contact-emoji">🎓</span>
+            <span id="education">
+              <!-- 提示：在此处填写教育经历 -->
+              Your University Name<br>
+              Your Major
+            </span>
+          </div>
+          
+          <div class="contact-item">
+            <span class="contact-emoji">📍</span>
+            <span id="location">
+              <!-- 提示：在此处填写所在地 -->
+              Your Location
+            </span>
+          </div>
+          
+          <div class="contact-item">
+            <span class="contact-emoji">💼</span>
+            <span id="occupation">
+              <!-- 提示：在此处填写职业/身份 -->
+              Your Title/Occupation
+            </span>
+          </div>
+        </div>
+        
+        <!-- 技能标签云 -->
+        <div class="skills-section">
+          <h4>🛠️ 技术栈</h4>
+          <div class="skills-tags" id="skillsTags">
+            <!-- 提示：在此处添加技能标签 -->
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">JavaScript</span>
+            <span class="skill-tag">React</span>
+            <span class="skill-tag">Node.js</span>
+            <!-- 可继续添加更多技能标签 -->
+          </div>
+        </div>
+      </div>
     </aside>
-    <main class="main-content">
-      <!-- 主内容区，可根据需要插入内容 -->
+    
+    <!-- 页面主体内容 -->
+    <main class="page-main">
+      <!-- 首页内容 -->
+      <div class="page-content" id="homePage">
+        <div class="welcome-section">
+          <h1 class="main-title">
+            <!-- 提示：在此处填写主标题 -->
+            欢迎来到我的技术主页 🚀
+          </h1>
+          <p class="main-subtitle">
+            <!-- 提示：在此处填写副标题/简介 -->
+            探索技术、分享知识、连接未来
+          </p>
+        </div>
+        
+        <div class="highlights-grid">
+          <!-- 特色项目展示 -->
+          <div class="highlight-card">
+            <div class="card-icon">🎯</div>
+            <h3>最新项目</h3>
+            <p>
+              <!-- 提示：在此处描述最新项目 -->
+              描述您最引以为豪的项目或最新完成的工作
+            </p>
+            <a href="#" class="card-link">查看详情 →</a>
+          </div>
+          
+          <div class="highlight-card">
+            <div class="card-icon">📚</div>
+            <h3>技术博客</h3>
+            <p>
+              <!-- 提示：在此处介绍技术博客 -->
+              分享技术心得、学习笔记和开发经验
+            </p>
+            <a href="#" class="card-link">阅读更多 →</a>
+          </div>
+          
+          <div class="highlight-card">
+            <div class="card-icon">💡</div>
+            <h3>创新思维</h3>
+            <p>
+              <!-- 提示：在此处展示创新理念 -->
+              持续学习新技术，探索创新解决方案
+            </p>
+            <a href="#" class="card-link">了解更多 →</a>
+          </div>
+        </div>
+        
+        <!-- 近期动态 -->
+        <div class="recent-activity">
+          <h2>📈 近期动态</h2>
+          <div class="activity-timeline">
+            <div class="activity-item">
+              <div class="activity-date">2025-01-15</div>
+              <div class="activity-content">
+                <!-- 提示：在此处添加近期活动 -->
+                <strong>项目更新：</strong> 完成了新版本的开发
+              </div>
+            </div>
+            <div class="activity-item">
+              <div class="activity-date">2025-01-10</div>
+              <div class="activity-content">
+                <!-- 提示：在此处添加近期活动 -->
+                <strong>博客发布：</strong> 发表了关于新技术的文章
+              </div>
+            </div>
+            <div class="activity-item">
+              <div class="activity-date">2025-01-05</div>
+              <div class="activity-content">
+                <!-- 提示：在此处添加近期活动 -->
+                <strong>开源贡献：</strong> 向知名开源项目提交了PR
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 关于我页面内容 -->
+      <div class="page-content" id="aboutPage" style="display: none;">
+        <div class="about-header">
+          <h1>👤 关于我</h1>
+          <p class="about-intro">
+            <!-- 提示：在此处填写个人简介 -->
+            这里可以写一段关于您的详细介绍，包括背景、经历、兴趣等
+          </p>
+        </div>
+        
+        <!-- 个人经历时间线 -->
+        <div class="experience-section">
+          <h2>📅 个人经历</h2>
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-year">2024</div>
+              <div class="timeline-content">
+                <h3>
+                  <!-- 提示：在此处填写经历标题 -->
+                  当前职位/学习状态
+                </h3>
+                <p>
+                  <!-- 提示：在此处描述具体经历 -->
+                  详细描述当前的工作或学习情况
+                </p>
+              </div>
+            </div>
+            
+            <div class="timeline-item">
+              <div class="timeline-year">2023</div>
+              <div class="timeline-content">
+                <h3>
+                  <!-- 提示：在此处填写经历标题 -->
+                  上一个重要经历
+                </h3>
+                <p>
+                  <!-- 提示：在此处描述具体经历 -->
+                  描述上一个重要的工作或学习经历
+                </p>
+              </div>
+            </div>
+            
+            <div class="timeline-item">
+              <div class="timeline-year">2022</div>
+              <div class="timeline-content">
+                <h3>
+                  <!-- 提示：在此处填写经历标题 -->
+                  更早的经历
+                </h3>
+                <p>
+                  <!-- 提示：在此处描述具体经历 -->
+                  描述更早期的重要经历
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- 技能能力 -->
+        <div class="skills-detail">
+          <h2>🛠️ 技能详情</h2>
+          <div class="skill-categories">
+            <div class="skill-category">
+              <h3>编程语言</h3>
+              <div class="skill-bars">
+                <div class="skill-item">
+                  <span class="skill-name">Python</span>
+                  <div class="skill-bar">
+                    <div class="skill-progress" style="width: 90%"></div>
+                  </div>
+                </div>
+                <div class="skill-item">
+                  <span class="skill-name">JavaScript</span>
+                  <div class="skill-bar">
+                    <div class="skill-progress" style="width: 85%"></div>
+                  </div>
+                </div>
+                <!-- 提示：可以添加更多技能条 -->
+              </div>
+            </div>
+            
+            <div class="skill-category">
+              <h3>框架工具</h3>
+              <div class="skill-bars">
+                <div class="skill-item">
+                  <span class="skill-name">React</span>
+                  <div class="skill-bar">
+                    <div class="skill-progress" style="width: 80%"></div>
+                  </div>
+                </div>
+                <div class="skill-item">
+                  <span class="skill-name">Node.js</span>
+                  <div class="skill-bar">
+                    <div class="skill-progress" style="width: 75%"></div>
+                  </div>
+                </div>
+                <!-- 提示：可以添加更多技能条 -->
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- 兴趣爱好 -->
+        <div class="interests-section">
+          <h2>🎯 兴趣爱好</h2>
+          <div class="interests-grid">
+            <div class="interest-item">
+              <div class="interest-icon">📖</div>
+              <h4>阅读</h4>
+              <p><!-- 提示：描述阅读兴趣 -->喜欢阅读技术书籍和文学作品</p>
+            </div>
+            <div class="interest-item">
+              <div class="interest-icon">🎵</div>
+              <h4>音乐</h4>
+              <p><!-- 提示：描述音乐爱好 -->热爱音乐，喜欢各种类型</p>
+            </div>
+            <div class="interest-item">
+              <div class="interest-icon">⚽</div>
+              <h4>运动</h4>
+              <p><!-- 提示：描述运动爱好 -->享受运动带来的活力</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 项目页面内容 -->
+      <div class="page-content" id="projectsPage" style="display: none;">
+        <div class="projects-header">
+          <h1>📁 我的项目</h1>
+          <p class="projects-intro">
+            <!-- 提示：在此处填写项目页面介绍 -->
+            这里展示了我参与开发和维护的各类项目，涵盖不同技术栈和应用场景
+          </p>
+        </div>
+        
+        <!-- 项目分类筛选 -->
+        <div class="project-filters">
+          <button class="filter-btn active" data-filter="all">全部</button>
+          <button class="filter-btn" data-filter="web">Web开发</button>
+          <button class="filter-btn" data-filter="mobile">移动应用</button>
+          <button class="filter-btn" data-filter="ai">AI/ML</button>
+          <button class="filter-btn" data-filter="tools">工具软件</button>
+        </div>
+        
+        <!-- 项目网格 -->
+        <div class="projects-grid">
+          <!-- 项目卡片1 -->
+          <div class="project-card" data-category="web">
+            <div class="project-image">
+              <img src="project1-thumbnail.jpg" alt="项目1预览图">
+            </div>
+            <div class="project-content">
+              <h3>
+                <!-- 提示：在此处填写项目名称 -->
+                项目名称1
+              </h3>
+              <p class="project-description">
+                <!-- 提示：在此处描述项目 -->
+                项目简要描述，说明主要功能和技术特点
+              </p>
+              <div class="project-tags">
+                <!-- 提示：添加项目技术标签 -->
+                <span class="tag">React</span>
+                <span class="tag">Node.js</span>
+                <span class="tag">MongoDB</span>
+              </div>
+              <div class="project-links">
+                <a href="#" class="project-link demo">🔗 演示</a>
+                <a href="#" class="project-link github">📂 代码</a>
+              </div>
+            </div>
+          </div>
+          
+          <!-- 项目卡片2 -->
+          <div class="project-card" data-category="mobile">
+            <div class="project-image">
+              <img src="project2-thumbnail.jpg" alt="项目2预览图">
+            </div>
+            <div class="project-content">
+              <h3>
+                <!-- 提示：在此处填写项目名称 -->
+                项目名称2
+              </h3>
+              <p class="project-description">
+                <!-- 提示：在此处描述项目 -->
+                另一个项目的描述信息
+              </p>
+              <div class="project-tags">
+                <!-- 提示：添加项目技术标签 -->
+                <span class="tag">React Native</span>
+                <span class="tag">Firebase</span>
+              </div>
+              <div class="project-links">
+                <a href="#" class="project-link demo">🔗 演示</a>
+                <a href="#" class="project-link github">📂 代码</a>
+              </div>
+            </div>
+          </div>
+          
+          <!-- 项目卡片3 -->
+          <div class="project-card" data-category="ai">
+            <div class="project-image">
+              <img src="project3-thumbnail.jpg" alt="项目3预览图">
+            </div>
+            <div class="project-content">
+              <h3>
+                <!-- 提示：在此处填写项目名称 -->
+                项目名称3
+              </h3>
+              <p class="project-description">
+                <!-- 提示：在此处描述项目 -->
+                AI相关项目的描述
+              </p>
+              <div class="project-tags">
+                <!-- 提示：添加项目技术标签 -->
+                <span class="tag">Python</span>
+                <span class="tag">TensorFlow</span>
+                <span class="tag">OpenAI</span>
+              </div>
+              <div class="project-links">
+                <a href="#" class="project-link demo">🔗 演示</a>
+                <a href="#" class="project-link github">📂 代码</a>
+              </div>
+            </div>
+          </div>
+          
+          <!-- 提示：可以继续添加更多项目卡片 -->
+        </div>
+        
+        <!-- 开源贡献 -->
+        <div class="contributions-section">
+          <h2>🤝 开源贡献</h2>
+          <div class="contributions-list">
+            <div class="contribution-item">
+              <div class="contribution-repo">
+                <h4>
+                  <!-- 提示：填写贡献的开源项目名 -->
+                  开源项目名称1
+                </h4>
+                <p>
+                  <!-- 提示：描述贡献内容 -->
+                  描述您对该项目的贡献
+                </p>
+              </div>
+              <a href="#" class="contribution-link">查看PR →</a>
+            </div>
+            
+            <div class="contribution-item">
+              <div class="contribution-repo">
+                <h4>
+                  <!-- 提示：填写贡献的开源项目名 -->
+                  开源项目名称2
+                </h4>
+                <p>
+                  <!-- 提示：描述贡献内容 -->
+                  另一个项目的贡献描述
+                </p>
+              </div>
+              <a href="#" class="contribution-link">查看PR →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 联系页面内容 -->
+      <div class="page-content" id="contactPage" style="display: none;">
+        <div class="contact-header">
+          <h1>✉️ 联系我</h1>
+          <p class="contact-intro">
+            <!-- 提示：在此处填写联系页面介绍 -->
+            欢迎与我交流合作，无论是技术讨论、项目合作还是其他任何想法
+          </p>
+        </div>
+        
+        <!-- 联系方式卡片 -->
+        <div class="contact-methods">
+          <div class="contact-card email">
+            <div class="contact-icon">📧</div>
+            <h3>邮箱</h3>
+            <p>
+              <!-- 提示：在此处填写邮箱地址 -->
+              your.email@example.com
+            </p>
+            <a href="mailto:your.email@example.com" class="contact-btn">发送邮件</a>
+          </div>
+          
+          <div class="contact-card github">
+            <div class="contact-icon">🔗</div>
+            <h3>GitHub</h3>
+            <p>
+              <!-- 提示：在此处填写GitHub用户名 -->
+              @YourGitHubUsername
+            </p>
+            <a href="https://github.com/YourGitHubUsername" target="_blank" class="contact-btn">访问GitHub</a>
+          </div>
+          
+          <div class="contact-card linkedin">
+            <div class="contact-icon">💼</div>
+            <h3>LinkedIn</h3>
+            <p>
+              <!-- 提示：在此处填写LinkedIn信息 -->
+              专业网络连接
+            </p>
+            <a href="https://linkedin.com/in/yourprofile" target="_blank" class="contact-btn">查看档案</a>
+          </div>
+          
+          <div class="contact-card wechat">
+            <div class="contact-icon">💬</div>
+            <h3>微信</h3>
+            <p>
+              <!-- 提示：在此处填写微信号或说明 -->
+              扫码添加微信
+            </p>
+            <button class="contact-btn" onclick="showQRCode()">显示二维码</button>
+          </div>
+        </div>
+        
+        <!-- 联系表单 -->
+        <div class="contact-form-section">
+          <h2>📝 快速联系</h2>
+          <form class="contact-form" id="contactForm">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="contactName">姓名 *</label>
+                <input type="text" id="contactName" name="name" required>
+              </div>
+              <div class="form-group">
+                <label for="contactEmail">邮箱 *</label>
+                <input type="email" id="contactEmail" name="email" required>
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label for="contactSubject">主题</label>
+              <select id="contactSubject" name="subject">
+                <option value="">请选择主题</option>
+                <option value="collaboration">合作咨询</option>
+                <option value="technical">技术交流</option>
+                <option value="job">工作机会</option>
+                <option value="other">其他</option>
+              </select>
+            </div>
+            
+            <div class="form-group">
+              <label for="contactMessage">消息内容 *</label>
+              <textarea id="contactMessage" name="message" rows="6" required placeholder="请在此处输入您的消息..."></textarea>
+            </div>
+            
+            <button type="submit" class="submit-btn">发送消息</button>
+          </form>
+        </div>
+        
+        <!-- FAQ部分 -->
+        <div class="faq-section">
+          <h2>❓ 常见问题</h2>
+          <div class="faq-list">
+            <div class="faq-item">
+              <div class="faq-question" onclick="toggleFAQ(this)">
+                <!-- 提示：添加常见问题 -->
+                <span>如何与您联系最有效？</span>
+                <span class="faq-toggle">+</span>
+              </div>
+              <div class="faq-answer">
+                <!-- 提示：添加问题答案 -->
+                邮箱是最佳联系方式，通常会在24小时内回复。
+              </div>
+            </div>
+            
+            <div class="faq-item">
+              <div class="faq-question" onclick="toggleFAQ(this)">
+                <span>是否接受项目合作？</span>
+                <span class="faq-toggle">+</span>
+              </div>
+              <div class="faq-answer">
+                <!-- 提示：添加问题答案 -->
+                欢迎有趣的项目合作机会，请通过邮箱详细说明项目情况。
+              </div>
+            </div>
+            
+            <div class="faq-item">
+              <div class="faq-question" onclick="toggleFAQ(this)">
+                <span>提供技术咨询服务吗？</span>
+                <span class="faq-toggle">+</span>
+              </div>
+              <div class="faq-answer">
+                <!-- 提示：添加问题答案 -->
+                根据具体情况提供技术咨询，可以先通过邮箱沟通需求。
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- 微信二维码模态框 -->
+        <div id="qrModal" class="modal" style="display: none;">
+          <div class="modal-content">
+            <span class="modal-close" onclick="hideQRCode()">&times;</span>
+            <h3>微信二维码</h3>
+            <div class="qr-code">
+              <!-- 提示：在此处放置微信二维码图片 -->
+              <img src="wechat-qr.jpg" alt="微信二维码" id="wechatQR">
+            </div>
+          </div>
+        </div>
+      </div>
     </main>
   </div>
-  <footer>
-    <p>&copy; 2025 R 的技术主页. 保留所有权利.</p>
+  
+  <!-- 悬浮按钮 -->
+  <div class="floating-buttons">
+    <button class="float-btn top-btn" onclick="scrollToTop()" title="回到顶部">
+      ⬆️
+    </button>
+    <button class="float-btn bottom-btn" onclick="scrollToBottom()" title="回到底部">
+      ⬇️
+    </button>
+  </div>
+  
+  <!-- 页脚组件 -->
+  <footer id="main-footer">
+    <div class="footer-container">
+      <!-- 社交媒体链接区域 -->
+      <div class="social-links">
+        <a href="https://github.com/YOUR_USERNAME" target="_blank" class="social-link github" title="GitHub">
+          <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/github.svg" alt="GitHub">
+        </a>
+        
+        <a href="https://linkedin.com/in/yourprofile" target="_blank" class="social-link linkedin" title="LinkedIn">
+          <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/linkedin.svg" alt="LinkedIn">
+        </a>
+        
+        <a href="https://twitter.com/yourusername" target="_blank" class="social-link twitter" title="Twitter">
+          <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/twitter.svg" alt="Twitter">
+        </a>
+        
+        <a href="https://weibo.com/yourusername" target="_blank" class="social-link weibo" title="微博">
+          <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/sinaweibo.svg" alt="微博">
+        </a>
+        
+        <a href="mailto:your.email@example.com" class="social-link email" title="邮箱">
+          <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/gmail.svg" alt="邮箱">
+        </a>
+        
+        <!-- 提示：可以添加更多社交媒体链接 -->
+        <a href="https://blog.yoursite.com" target="_blank" class="social-link blog" title="博客">
+          <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/wordpress.svg" alt="博客">
+        </a>
+      </div>
+      
+      <!-- 快速链接 -->
+      <div class="footer-links">
+        <div class="footer-section">
+          <h4>快速导航</h4>
+          <ul>
+            <li><a href="#" data-page="home">首页</a></li>
+            <li><a href="#" data-page="about">关于我</a></li>
+            <li><a href="#" data-page="projects">项目展示</a></li>
+            <li><a href="#" data-page="contact">联系我</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-section">
+          <h4>技术领域</h4>
+          <ul>
+            <!-- 提示：在此处添加您的技术专长 -->
+            <li>Web开发</li>
+            <li>移动应用</li>
+            <li>人工智能</li>
+            <li>数据分析</li>
+          </ul>
+        </div>
+        
+        <div class="footer-section">
+          <h4>联系方式</h4>
+          <ul>
+            <!-- 提示：在此处填写联系信息 -->
+            <li>📧 your.email@example.com</li>
+            <li>🔗 GitHub: @YourUsername</li>
+            <li>📍 Your Location</li>
+          </ul>
+        </div>
+      </div>
+      
+      <!-- 版权信息 -->
+      <div class="footer-copyright">
+        <div class="copyright-text">
+          <p>
+            © 2025 
+            <strong id="ownerName">
+              <!-- 提示：在此处填写您的名字 -->
+              Your Name
+            </strong>
+            的个人主页. 保留所有技术权利.
+          </p>
+          <p class="build-info">
+            <!-- 提示：可以添加构建信息 -->
+            Built with ❤️ using HTML, CSS & JavaScript | Last updated: <span id="lastUpdate">2025-01-26</span>
+          </p>
+        </div>
+        
+        <!-- 备案信息（如需要） -->
+        <div class="footer-meta">
+          <!-- 提示：如果有备案号等信息，可以在此处添加 -->
+          <!-- <p>ICP备案号: 京ICP备XXXXXXXX号</p> -->
+        </div>
+      </div>
+    </div>
+    
+    <!-- 回到顶部按钮 -->
+    <button id="backToTop" class="back-to-top" onclick="scrollToTop()" title="回到顶部">
+      ↑
+    </button>
   </footer>
-</body>
 
-  <h2>🛠 技术栈</h2>
-  <ul>
-    <li>Python / Cython / NumPy / MJCF 模型自动化</li>
-    <li>MuJoCo / CoppeliaSim / 物理建模与仿真</li>
-    <li>Git / GitHub / 自动化部署 / 协作流程</li>
-    <li>数字资产管理 / 区块链安全 / 自主身份恢复</li>
-  </ul>
+  <script>
+    // =========================
+    // 简化的页面切换系统
+    // =========================
+    
+    let currentPage = 'home';
+    let searchDropdownVisible = false;
 
-  <h2>📬 联系方式</h2>
-  <p><strong>Email：</strong> 填入你的邮箱</p>
-  <p><strong>GitHub：</strong> <a href="https://github.com/你的用户名">你的用户名</a></p>
-  <p><strong>其他链接：</strong> 填入你希望展示的社交或博客链接</p>
-</section>
+    // 页面加载完成后初始化
+    document.addEventListener('DOMContentLoaded', function() {
+        // 绑定导航按钮事件
+        document.querySelectorAll('.nav-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                showPage(this.getAttribute('data-page'));
+            });
+        });
 
+        // 绑定页脚导航链接事件
+        document.querySelectorAll('[data-page]').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                showPage(this.getAttribute('data-page'));
+            });
+        });
+
+        // 绑定项目筛选按钮事件
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                filterProjects(this.getAttribute('data-filter'));
+                updateActiveFilter(this);
+            });
+        });
+
+        // 绑定联系表单事件
+        const contactForm = document.getElementById('contactForm');
+        if (contactForm) {
+            contactForm.addEventListener('submit', handleContactSubmit);
+        }
+
+        // 滚动事件
+        window.addEventListener('scroll', handleScroll);
+
+        // 键盘事件
+        document.addEventListener('keydown', function(e) {
+            if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+                e.preventDefault();
+                toggleSearch();
+            }
+            if (e.key === 'Escape') {
+                if (searchDropdownVisible) {
+                    toggleSearch();
+                }
+                hideQRCode();
+            }
+        });
+
+        // 搜索框回车事件
+        const searchInput = document.getElementById('searchInput');
+        if (searchInput) {
+            searchInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    handleSearch();
+                }
+            });
+        }
+
+        // 初始化浏览量
+        updateViewCount();
+        
+        // 显示首页
+        showPage('home');
+    });
+
+    // 显示指定页面
+    function showPage(pageName) {
+        // 隐藏所有页面
+        document.querySelectorAll('.page-content').forEach(page => {
+            page.style.display = 'none';
+        });
+
+        // 显示指定页面
+        const targetPage = document.getElementById(pageName + 'Page');
+        if (targetPage) {
+            targetPage.style.display = 'block';
+            currentPage = pageName;
+        }
+
+        // 更新导航按钮状态
+        document.querySelectorAll('.nav-btn').forEach(btn => {
+            btn.classList.remove('active');
+            if (btn.getAttribute('data-page') === pageName) {
+                btn.classList.add('active');
+            }
+        });
+
+        // 滚动到顶部
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+
+        // 页面特定初始化
+        if (pageName === 'about') {
+            initAboutPage();
+        } else if (pageName === 'projects') {
+            initProjectsPage();
+        }
+    }
+
+    // 初始化关于页面
+    function initAboutPage() {
+        setTimeout(() => {
+            document.querySelectorAll('.skill-progress').forEach(bar => {
+                const width = bar.style.width;
+                bar.style.width = '0%';
+                setTimeout(() => {
+                    bar.style.width = width;
+                }, 100);
+            });
+        }, 500);
+    }
+
+    // 初始化项目页面
+    function initProjectsPage() {
+        const allFilter = document.querySelector('.filter-btn[data-filter="all"]');
+        if (allFilter && !allFilter.classList.contains('active')) {
+            allFilter.classList.add('active');
+        }
+    }
+
+    // 项目筛选
+    function filterProjects(category) {
+        const projectCards = document.querySelectorAll('.project-card');
+        
+        projectCards.forEach(card => {
+            if (category === 'all' || card.getAttribute('data-category') === category) {
+                card.style.display = 'block';
+                setTimeout(() => {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, 100);
+            } else {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                setTimeout(() => {
+                    card.style.display = 'none';
+                }, 300);
+            }
+        });
+    }
+
+    // 更新活跃筛选按钮
+    function updateActiveFilter(activeBtn) {
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.classList.remove('active');
+        });
+        activeBtn.classList.add('active');
+    }
+
+    // 搜索功能
+    function toggleSearch() {
+        const searchDropdown = document.getElementById('searchDropdown');
+        const searchInput = document.getElementById('searchInput');
+        
+        if (searchDropdown) {
+            searchDropdownVisible = !searchDropdownVisible;
+            searchDropdown.style.display = searchDropdownVisible ? 'block' : 'none';
+            
+            if (searchDropdownVisible && searchInput) {
+                setTimeout(() => searchInput.focus(), 100);
+            }
+        }
+    }
+
+    function handleSearch() {
+        const searchInput = document.getElementById('searchInput');
+        const searchTerm = searchInput?.value.trim();
+        
+        if (!searchTerm) {
+            alert('请输入搜索关键词');
+            return;
+        }
+        
+        console.log('搜索关键词:', searchTerm);
+        alert(`搜索功能正在开发中，搜索关键词：${searchTerm}`);
+        
+        toggleSearch();
+    }
+
+    // 滚动功能
+    function scrollToTop() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function scrollToBottom() {
+        window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+    }
+
+    function handleScroll() {
+        const backToTopBtn = document.getElementById('backToTop');
+        if (backToTopBtn) {
+            if (window.pageYOffset > 300) {
+                backToTopBtn.style.display = 'block';
+            } else {
+                backToTopBtn.style.display = 'none';
+            }
+        }
+    }
+
+    // FAQ功能
+    function toggleFAQ(element) {
+        const faqAnswer = element.nextElementSibling;
+        const isActive = element.classList.contains('active');
+        
+        // 关闭所有FAQ
+        document.querySelectorAll('.faq-question').forEach(q => q.classList.remove('active'));
+        document.querySelectorAll('.faq-answer').forEach(a => a.style.display = 'none');
+        
+        // 如果当前不是激活状态，则打开
+        if (!isActive) {
+            element.classList.add('active');
+            faqAnswer.style.display = 'block';
+        }
+    }
+
+    // 微信二维码
+    function showQRCode() {
+        const modal = document.getElementById('qrModal');
+        if (modal) {
+            modal.style.display = 'flex';
+        }
+    }
+
+    function hideQRCode() {
+        const modal = document.getElementById('qrModal');
+        if (modal) {
+            modal.style.display = 'none';
+        }
+    }
+
+    // 联系表单处理
+    function handleContactSubmit(e) {
+        e.preventDefault();
+        
+        const formData = new FormData(e.target);
+        const data = {
+            name: formData.get('name'),
+            email: formData.get('email'),
+            subject: formData.get('subject'),
+            message: formData.get('message')
+        };
+
+        console.log('表单数据:', data);
+        alert('消息已发送！感谢您的联系，我会尽快回复。');
+        e.target.reset();
+    }
+
+    // 更新浏览量
+    function updateViewCount() {
+        const viewCountElement = document.getElementById('viewCount');
+        if (viewCountElement) {
+            let viewCount = localStorage.getItem('pageViewCount') || 0;
+            viewCount = parseInt(viewCount) + 1;
+            localStorage.setItem('pageViewCount', viewCount);
+            viewCountElement.textContent = viewCount.toLocaleString();
+        }
+    }
+  </script>
 </body>
 </html>

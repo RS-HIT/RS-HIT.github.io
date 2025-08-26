@@ -4,21 +4,22 @@
   <meta charset="UTF-8">
   <title>关于我 - R 的技术主页</title>
   <link rel="stylesheet" href="style.css">
+  <script src="search.js"></script>
 </head>
 <body>
   <header>
     <div class="header-container">
       <img src="你的头像链接.jpg" alt="头像" class="avatar">
-      <div class="site-title">
-        <h1>R 的技术主页</h1>
-        <p>探索技术、表达思想、连接世界</p>
-      </div>
       <nav class="main-nav">
-        <a href="index.html">首页</a>
-        <a href="about.html">关于我</a>
-        <a href="projects.html">项目</a>
-        <a href="contact.html">联系</a>
+        <a href="index.html">🏠首页</a>
+        <a href="about.html">👤关于我</a>
+        <a href="projects.html">📁项目</a>
+        <a href="contact.html">✉️联系</a>
       </nav>
+      <div class="search-container">
+        <input type="text" class="search-input" placeholder="搜索..." id="searchInput">
+        <button class="search-btn" onclick="handleSearch()">🔍</button>
+      </div>
     </div>
   </header>
   <div class="container">
