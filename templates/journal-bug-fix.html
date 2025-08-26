@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>问题解决日志模板</title>
+</head>
+<body>
+    <!-- 问题解决日志模板 -->
+    <div class="journal-entry">
+        <div class="journal-meta">
+            <span class="journal-date">2025-01-24</span>
+            <span class="journal-type bug">问题解决</span>
+        </div>
+        <div class="journal-content">
+            <h3>解决跨域请求问题</h3>
+            <p>在前后端联调时遇到了CORS跨域问题，经过排查找到了解决方案。</p>
+            <p><strong>问题描述：</strong><br>
+            前端向后端API发送请求时出现CORS错误，阻止了正常的数据交互。</p>
+            <p><strong>解决方案：</strong></p>
+            <ul>
+                <li>在Express服务器中配置cors中间件</li>
+                <li>设置正确的Origin、Methods和Headers</li>
+                <li>处理预检请求(OPTIONS)</li>
+            </ul>
+            <p><strong>经验总结：</strong><br>
+            开发环境和生产环境的CORS配置需要区别对待，安全性和便利性需要平衡。</p>
+            <div class="journal-tags">
+                <span class="tag">CORS</span>
+                <span class="tag">Express</span>
+                <span class="tag">调试</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
