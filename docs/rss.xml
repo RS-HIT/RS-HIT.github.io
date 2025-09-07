@@ -1,5 +1,71 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Blog Title</title><link>https://RS-HIT.github.io</link><description>Blog description</description><copyright>Blog Title</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://github.githubassets.com/favicons/favicon.svg</url><title>avatar</title><link>https://RS-HIT.github.io</link></image><lastBuildDate>Sun, 07 Sep 2025 06:11:19 +0000</lastBuildDate><managingEditor>Blog Title</managingEditor><ttl>60</ttl><webMaster>Blog Title</webMaster><item><title>神经网络学习</title><link>https://RS-HIT.github.io/post/shen-jing-wang-luo-xue-xi.html</link><description># 1. 神经网络
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Blog Title</title><link>https://RS-HIT.github.io</link><description>Blog description</description><copyright>Blog Title</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://github.githubassets.com/favicons/favicon.svg</url><title>avatar</title><link>https://RS-HIT.github.io</link></image><lastBuildDate>Sun, 07 Sep 2025 13:29:58 +0000</lastBuildDate><managingEditor>Blog Title</managingEditor><ttl>60</ttl><webMaster>Blog Title</webMaster><item><title>markdown语法示例</title><link>https://RS-HIT.github.io/post/markdown-yu-fa-shi-li.html</link><description># 1.标题1
+## 2.标题2
+### 3.标题3
+#### 4.标题4
+##### 5.标题5
+###### 6.标题6
+
+&gt; 这是一段引用
+
+ctrl + . 确保中文输入时打出半角字符
+
+有序列表
+
+1. 第一步
+2. 第二步
+3. 第三步
+
+无序列表
+
+* 第一步
+- 第二步
+
+待完成事项
+
+- [ ] 第一件
+- [x] 第二件
+
+代码块
+```C
+int main(){
+    return 0;
+}
+```
+数学公式(Latex)
+行外:
+
+$$
+\int_{-\infty}^{\infty} e^{-x^2} dx = \sqrt{\pi}
+$$
+
+行内: $\int_{-\infty}^{\infty} e^{-x^2} dx = \sqrt{\pi}$
+
+表格
+|左对齐|居中对齐|右对齐|
+|:--|:--:|--:|
+|1|2|3|
+|4|5|6|
+
+脚注:
+一键三连[^三连]
+
+[^三连]: 点赞, 投币, 收藏
+
+横线
+
+---
+***
+
+链接
+[百度](www.baidu.com '一个搜索引擎')
+
+引用链接
+这是一个 [百度][baidu] 链接.
+&lt;!--此处必须换行--&gt;
+[baidu]: https://www.baidu.com '一个搜索引擎'
+
+这是一个 [GitHub][github] 链接。</description><guid isPermaLink="true">https://RS-HIT.github.io/post/markdown-yu-fa-shi-li.html</guid><pubDate>Sun, 07 Sep 2025 13:29:27 +0000</pubDate></item><item><title>神经网络学习</title><link>https://RS-HIT.github.io/post/shen-jing-wang-luo-xue-xi.html</link><description># 1. 神经网络
 
 受到人类神经组织的影响, 神经网络是模仿人类神经组织的结构和功能而设计的机器学习模型. 神经网络由多个层组成.
 通过输入层, 隐含层, 输出层不断对样本进行拟合(这个过程被称为学习), 以及对误差进行反向传播, 不断调整各个层的各个神经元的权值和阈值,最终实现对任意函数任意精度的拟合, 甚至对未来进行预测.
