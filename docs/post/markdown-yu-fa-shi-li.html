@@ -276,7 +276,7 @@ $$</p>
 </tbody>
 </table></markdown-accessiblity-table>
 <p>脚注:<br>
-一键三连<sup><a href="#user-content-fn-%E4%B8%89%E8%BF%9E-7ddd8fd420ab85c7026e8a1d652a28f4" id="user-content-fnref-%e4%b8%89%e8%bf%9e-7ddd8fd420ab85c7026e8a1d652a28f4" data-footnote-ref="" aria-describedby="footnote-label">1</a></sup></p>
+一键三连<sup><a href="#user-content-fn-%E4%B8%89%E8%BF%9E-526ae46a5da620fb41fda70833a50ccb" id="user-content-fnref-%e4%b8%89%e8%bf%9e-526ae46a5da620fb41fda70833a50ccb" data-footnote-ref="" aria-describedby="footnote-label">1</a></sup></p>
 <p>横线</p>
 <hr>
 <hr>
@@ -304,8 +304,8 @@ $$</p>
 &lt;iframe src="//player.bilibili.com/player.html?isOutside=true&amp;aid=327623069&amp;bvid=BV1JA411h7Gw&amp;cid=171385214&amp;p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"&gt;&lt;/iframe&gt;
 <section data-footnotes="" class="footnotes"><h2 id="footnote-label" class="sr-only">Footnotes</h2>
 <ol>
-<li id="user-content-fn-%E4%B8%89%E8%BF%9E-7ddd8fd420ab85c7026e8a1d652a28f4">
-<p>点赞, 投币, 收藏 <a href="#user-content-fnref-%E4%B8%89%E8%BF%9E-7ddd8fd420ab85c7026e8a1d652a28f4" data-footnote-backref="" aria-label="Back to reference 1" class="data-footnote-backref">↩</a></p>
+<li id="user-content-fn-%E4%B8%89%E8%BF%9E-526ae46a5da620fb41fda70833a50ccb">
+<p>点赞, 投币, 收藏 <a href="#user-content-fnref-%E4%B8%89%E8%BF%9E-526ae46a5da620fb41fda70833a50ccb" data-footnote-backref="" aria-label="Back to reference 1" class="data-footnote-backref">↩</a></p>
 </li>
 </ol>
 </section></div>
@@ -328,7 +328,7 @@ if(""!=""){
     var startSite=new Date("");
     var diff=now.getTime()-startSite.getTime();
     var diffDay=Math.floor(diff/(1000*60*60*24));
-    document.getElementById("runday").innerHTML="网站运行"+diffDay+"天"+" • ";
+    document.getElementById("runday").innerHTML="网站运行 "+diffDay+" 天"+" • ";
 }
 </script></div>
 </body>
@@ -373,6 +373,7 @@ document.getElementById("pathIssue").setAttribute("d",IconList["github"]);
 function openComments(){
     cm=document.getElementById("comments");
     cmButton=document.getElementById("cmButton");
+    cmButton.disabled=true;
     cmButton.innerHTML="loading";
     span=document.createElement("span");
     span.setAttribute("class","AnimatedEllipsis");
