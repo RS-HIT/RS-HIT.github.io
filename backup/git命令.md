@@ -34,6 +34,12 @@ git clone https://github.com/username/repo.git
 ```Bash
 git push origin main --force
 ```
+查看历史版本
+```Bash
+git log
+```
+
+
 ## 1.2 分支管理
 查看分支
 ```Bash
