@@ -1,2 +1,251 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Blog Title</title><link>https://RS-HIT.github.io</link><description>Blog description</description><copyright>Blog Title</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://github.githubassets.com/favicons/favicon.svg</url><title>avatar</title><link>https://RS-HIT.github.io</link></image><lastBuildDate>Mon, 27 Apr 2026 17:14:58 +0000</lastBuildDate><managingEditor>Blog Title</managingEditor><ttl>60</ttl><webMaster>Blog Title</webMaster></channel></rss>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Blog Title</title><link>https://RS-HIT.github.io</link><description>Blog description</description><copyright>Blog Title</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://github.githubassets.com/favicons/favicon.svg</url><title>avatar</title><link>https://RS-HIT.github.io</link></image><lastBuildDate>Tue, 28 Apr 2026 17:40:49 +0000</lastBuildDate><managingEditor>Blog Title</managingEditor><ttl>60</ttl><webMaster>Blog Title</webMaster><item><title>markdown语法示例</title><link>https://RS-HIT.github.io/post/markdown-yu-fa-shi-li.html</link><description># 1.标题1
+## 2.标题2
+### 3.标题3
+#### 4.标题4
+##### 5.标题5
+###### 6.标题6
+
+&gt; 这是一段引用
+
+ctrl + . 确保中文输入时打出半角字符
+
+有序列表
+
+1. 第一步
+2. 第二步
+3. 第三步
+
+无序列表
+
+* 第一步
+- 第二步
+
+待完成事项
+
+- [ ] 第一件
+- [x] 第二件
+
+代码块
+```C
+int main(){
+    return 0;
+}
+```
+数学公式(Latex)
+行外:
+
+$$
+\int_{-\infty}^{\infty} e^{-x^2} dx = \sqrt{\pi}
+$$
+
+行内: $\int_{-\infty}^{\infty} e^{-x^2} dx = \sqrt{\pi}$
+
+表格
+|左对齐|居中对齐|右对齐|
+|:--|:--:|--:|
+|1|2|3|
+|4|5|6|
+
+脚注:
+一键三连[^三连]
+
+[^三连]: 点赞, 投币, 收藏
+
+横线
+
+---
+***
+
+链接
+[百度](www.baidu.com '一个搜索引擎')
+
+引用链接
+这是一个 [百度][baidu] 链接.
+&lt;!--此处必须换行--&gt;
+[baidu]: https://www.baidu.com '一个搜索引擎'
+
+这是一个 [GitHub][github] 链接。</description><guid isPermaLink="true">https://RS-HIT.github.io/post/markdown-yu-fa-shi-li.html</guid><pubDate>Sun, 07 Sep 2025 13:29:27 +0000</pubDate></item><item><title>神经网络学习</title><link>https://RS-HIT.github.io/post/shen-jing-wang-luo-xue-xi.html</link><description># 1. 神经网络
+
+受到人类神经组织的影响, 神经网络是模仿人类神经组织的结构和功能而设计的机器学习模型. 神经网络由多个层组成.
+通过输入层, 隐含层, 输出层不断对样本进行拟合(这个过程被称为学习), 以及对误差进行反向传播, 不断调整各个层的各个神经元的权值和阈值,最终实现对任意函数任意精度的拟合, 甚至对未来进行预测.
+
+## 1.1 神经的传递
+
+每一层的神经元对输入值进行 $y=wx+b$ 的线性变化, 再通过一个非线性函数进行非线性变化, 如sigmoid函数, tanh函数, ReLU函数等, 然后将输出值传递到下一层, 直到输出层.
+
+## 1.2 权值和阈值
+
+其中, 线性变化的过程中, 系数 $w$ 和 $b$ 称为权重和偏置(或者权值和阈值). 为了保持数值稳定不溢出, 般取绝对值不大于1的随机数为各个前置神经元输入的权值.
+取随机数的作用为避免对称现象的出现.
+
+### 1.2.1 权值的选取
+
+在初始化增加随机性, 在均值为0, 方差为1的正态分布中取w的值.
+
+## 1.3 激活函数
+
+对线性变化后的结果进行非线性变化的函数, 被称作激活函数, 激活函数应当是连续可导且定义域为R.
+
+### 1.3.1 sigmoid函数
+
+$$f(x)=\frac{1}{1+e^{-x}}$$
+$$f'(x)=f(x)(1-f(x))$$
+sigmoid函数为非零均值函数, 饱和函数.
+**非零均值函数**
+导致神经网络不易收敛.
+**饱和函数**
+其导数最大值为0.25, 每层梯度缩小约1/4, 导致多层神经元实际上失效, 被称为梯度消失现象.
+
+### 1.3.2 tanh函数(双曲正切函数)
+
+tanh函数为零均值函数, 饱和函数.
+$$f(x)=\frac{e^x-e^{-x}}{e^x+e^{-x}}$$
+
+### 1.3.3 ReLU函数(修正线性单元, Rectified Linear Unit)
+
+ReLU函数为非零均值函数, 非饱和函数. 计算简单,收敛快速. 非饱和函数可以避免梯度消失问题.
+但会出现梯度爆炸等现象, 需进行归一化初始化.
+$$
+f(x)=\begin{cases}
+0,\quad x \leq 0 \\
+x, \quad x&gt;0
+\end {cases}
+$$
+
+## 1.4 初始化方法
+
+为了避免梯度消失与梯度爆炸, 通常采用随机初始化方法, 即用随机数初始化权重和阈值.
+随机初始化方法有均匀分布和正态分布两种.
+均匀分布初始化方法:
+$$w_i\sim\mathcal{U}(-\frac{1}{\sqrt{N}},\frac{1}{\sqrt{N}})$$
+其中N为神经元的个数.
+正态分布初始化方法:
+$$w_i\sim\mathcal{N}(0,\frac{1}{N})$$
+其中N为神经元的个数.
+
+## 1.5 反向传播算法(Back-Propagation, BP)
+
+为使神经网络能够对任意函数进行拟合, 需要对误差进行反向传播, 即从输出层反向计算误差, 以更新权值和阈值.
+
+### 1.5.1 损失函数
+
+损失函数用以表达拟合输出值与真实值之间的差异.
+常用的损失函数有均方误差, 交叉熵等.
+均方误差函数:
+$$L(f(x_i,w,b),y_i)=\frac{1}{2}(f(x_i,w,b)-y_i)^2$$
+
+### 1.5.2 梯度下降算法
+
+首先确定损失函数 $L(f(x_i,w,b),y_i)$ .
+然后分别对 $w$ 和 $b$ 求偏导,得到梯度$\nabla_w=
+\frac{\partial L}{\partial w}$, $\nabla_b=
+\frac{\partial L}{\partial b}$.
+然后根据梯度反方向更新权值和阈值(假设有N个样本):
+$$w=w-\alpha\nabla_w\sum_{i=1}^N{L(f(x_i,w,b),y_i)}$$
+$$b=b-\alpha\nabla_b\sum_{i=1}^N{L(f(x_i,w,b),y_i)}$$
+其中, $\alpha$ 为学习率, 一般取0.01~0.1.
+
+### 1.5.3 链式法则
+
+对于复合函数求导,可以利用链式法则.
+线性变换
+$$u=wx+b$$
+激活函数
+$$y=f(u)$$
+损失函数
+$$L=\frac{1}{2}(y-y_{gt})^2$$
+则
+$$\frac{\partial L}{\partial w}=\frac{\partial L}{\partial y}\frac{\partial y}{\partial u}\frac{\partial u}{\partial w}$$
+
+。</description><guid isPermaLink="true">https://RS-HIT.github.io/post/shen-jing-wang-luo-xue-xi.html</guid><pubDate>Sun, 07 Sep 2025 06:10:46 +0000</pubDate></item><item><title>git命令</title><link>https://RS-HIT.github.io/post/git-ming-ling.html</link><description># 1. git命令记录
+
+## 1.1 基础git命令
+
+初始化 生成一个git仓库
+```Bash
+git init
+```
+由本地仓库关联远程仓库
+```Bash
+git remote add origin https://github.com/username/repo.git
+```
+添加所有文件到暂存区
+```Bash
+git add .
+```
+提交到本地仓库
+```Bash
+git commit -m '提交信息'
+```
+将本地仓库推送到远程仓库
+```Bash
+git push origin main
+```
+将远程仓库拉取到本地仓库
+```Bash
+git pull origin master
+```
+克隆仓库
+```Bash
+git clone https://github.com/username/repo.git
+```
+强制推送
+```Bash
+git push origin main --force
+```
+查看历史版本
+```Bash
+git log
+```
+
+
+## 1.2 分支管理
+查看分支
+```Bash
+git branch
+```
+切换分支
+```Bash
+git checkout main
+```
+创建并切换
+```Bash
+git checkout -b main
+```
+重命名分支
+```Bash
+git branch -m main
+```
+删除分支
+```Bash
+git branch -d main
+```
+合并分支
+```Bash
+git merge main
+```
+
+。</description><guid isPermaLink="true">https://RS-HIT.github.io/post/git-ming-ling.html</guid><pubDate>Sun, 07 Sep 2025 06:09:37 +0000</pubDate></item><item><title>使用conda配置虚拟环境</title><link>https://RS-HIT.github.io/post/shi-yong-conda-pei-zhi-xu-ni-huan-jing.html</link><description># 基本命令行
+
+## 创建环境
+``` Bash
+conda create -n env_name python=3.x
+```
+## 查看环境
+```Bash
+conda env list
+```
+## 激活环境
+```Bash
+conda activate env_name
+```
+## 退出环境
+```Bash
+conda deactivate env_name
+```
+## 删除环境
+```Bash
+conda remove -n env_name --all 
+```
+。</description><guid isPermaLink="true">https://RS-HIT.github.io/post/shi-yong-conda-pei-zhi-xu-ni-huan-jing.html</guid><pubDate>Wed, 03 Sep 2025 06:21:05 +0000</pubDate></item></channel></rss>
